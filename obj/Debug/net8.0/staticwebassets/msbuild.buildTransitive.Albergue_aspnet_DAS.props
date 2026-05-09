@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\Albergue_aspnet_DAS.props" />
-</Project>

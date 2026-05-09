@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\Albergue_aspnet_DAS.props" />
-</Project>

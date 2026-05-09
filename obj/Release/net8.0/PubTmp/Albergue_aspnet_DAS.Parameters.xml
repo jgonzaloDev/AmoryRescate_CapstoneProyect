@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="IIS Web Application Name" description="" value="appserviceDojo" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\DOJOOOOOOOOO-AZURE\\proyecto_grupo1\\sol_Albergue_aspnet_DAS\\Albergue_aspnet_DAS\\obj\\Release\\net8\.0\\PubTmp\\Out\\$" />
-  </parameter>
-</parameters>
