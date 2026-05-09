@@ -1,0 +1,144 @@
+﻿@model Albergue_aspnet_DAS.Models.VistaModelo.RazaMazcotasVM
+
+@{
+    ViewData["Title"] = "Razas_Detalle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model.oRazaMascota.IdRazMas == 0)
+{
+    <h1>Crear Raza de Mascota</h1>
+
+}
+else
+{
+    <h1>Editar Raza de Mascota</h1>
+
+}
+
+<div class="row">
+    <div class="col-sm-4">
+
+        <form asp-action="Razas_Detalle" asp-controller="RazaMascotasControllers" method="post" id="IndexRM">
+            <input type="hidden" asp-for="oRazaMascota.IdRazMas" />
+
+            <div class="mb-2">
+                <label class="form-label" asp-for="oRazaMascota.DescripcionRazMas">Raza</label>
+                <input class="form-control form-control-sm" asp-for="oRazaMascota.DescripcionRazMas" type=" text" />
+            </div>
+
+            <div class="mb-2">
+                <label class="form-check-label" for="chkEstado">Activo</label>
+                <input class="form-check-input" asp-for="oRazaMascota.Estado" type="checkbox" id="chkEstado" />
+            </div>
+
+            <div class="mb-2">
+
+                @if (Model.oRazaMascota.IdRazMas == 0)
+                {
+                    <button class="btn btn-primary btn-sm w-25" type="submit" onclik="GuardarCambios(event)">Crear</button>
+
+                }
+                else
+                {
+                    <button class="btn btn-primary btn-sm w-25" type="submit" onclick="ActualizarCambios(event)">Actualizar</button>
+
+                }
+
+                <a class="btn btn-success btn-sm" asp-action="IndexRM" asp-controller="RazaMascotasControllers">Volver</a>
+
+            </div>
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+
+    <script>
+
+        function GuardarCambios(event) {
+            event.preventDefault(); //Evita el envío del formulario
+
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: "btn btn-success",
+                    cancelButton: "btn btn-danger"
+                },
+                buttonsStyling: false
+            });
+            swalWithBootstrapButtons.fire({
+                title: "¿Estas seguro?",
+                text: "dale",
+                icon: "info",
+                showCancelButton: true,
+                confirmButtonText: "Guardar",
+                cancelButtonText: "Cancelar",
+                reverseButtons: true
+            }).then((resultado) => {
+                if (resultado.isConfirmed) {
+                    swalWithBootstrapButtons.fire({
+                        title: "Guardado!",
+                        text: "Los datos han sido guardados exitosamente.",
+                        icon: "success"
+                    }).then(() => {
+                        // Envía el formulario manualmente
+                        document.getElementById("IndexRM").submit();
+                    });
+                } else if (
+                    /* Read more about handling dismissals below */
+                    resultado.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        title: "Cancelado",
+                        text: "Los datos no se han guardado",
+                        icon: "error"
+                    });
+                }
+            });
+        }
+
+        function ActualizarCambios(event) {
+            event.preventDefault(); //Evita el envío del formulario
+
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: "btn btn-success",
+                    cancelButton: "btn btn-danger"
+                },
+                buttonsStyling: false
+            });
+            swalWithBootstrapButtons.fire({
+                title: "¿Estas seguro?",
+                text: "",
+                icon: "info",
+                showCancelButton: true,
+                confirmButtonText: "Actualizar",
+                cancelButtonText: "Cancelar",
+                reverseButtons: true
+            }).then((resultado) => {
+                if (resultado.isConfirmed) {
+                    swalWithBootstrapButtons.fire({
+                        title: "Actualizado!",
+                        text: "Los datos han sido actualizados exitosamente.",
+                        icon: "success"
+                    }).then(() => {
+                        // Envía el formulario manualmente
+                        document.getElementById("IndexRM").submit();
+                    });
+                } else if (
+                    /* Read more about handling dismissals below */
+                    resultado.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        title: "Canceladoo",
+                        text: "Los datos no se han actualizado",
+                        icon: "error"
+                    });
+                }
+            });
+        }
+
+    </script>
+}
+

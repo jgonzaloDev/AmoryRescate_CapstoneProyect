@@ -1,0 +1,26 @@
+﻿@model List<Albergue_aspnet_DAS.Models.TbMascotum>
+
+@foreach (var item in Model)
+{
+    <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center mb-4">
+        <div class="card text-center shadow-sm" style="width: 18rem; border: none;">
+
+            @if (item.ImagenMas != null)
+            {
+                <img src="data:image/jpeg;base64,@Convert.ToBase64String(item.ImagenMas)"
+                     class="rounded-circle mx-auto mt-3"
+                     alt="Imagen no cargó correctamente"
+                     style="width: 150px; height: 150px; object-fit: cover; border: 5px solid #f0f0f0;">
+            }
+            else
+            {
+                <span>Sin imagen</span>
+            }
+            <div class="card-body">
+                <h5 class="card-title fw-bold" style="color: #6c63ff;">@item.NombreMas</h5>
+                <p class="card-text text-muted">Edad: <span style="color: #8a2be2;">@item.EdadMas años</span></p>
+                <p class="card-text text-muted">Sexo: <span style="color: #8a2be2;">@item.SexoMas</span></p>
+            </div>
+        </div>
+    </div>
+}

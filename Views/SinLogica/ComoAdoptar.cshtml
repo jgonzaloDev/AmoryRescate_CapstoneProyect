@@ -1,0 +1,107 @@
+﻿@{
+    ViewData["Title"] = "Cómo Adoptar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- ============================================= -->
+<!-- BANNER DE PÁGINA -->
+<!-- ============================================= -->
+<div class="page-banner">
+    <img src="/image/portada.jpg" alt="Cómo adoptar">
+    <div class="page-banner-content">
+        <h1>¿Cómo adoptar?</h1>
+        <p><i class="bi bi-info-circle me-1"></i> Sigue estos pasos para darle un hogar a un nuevo amigo</p>
+    </div>
+</div>
+
+<!-- ============================================= -->
+<!-- PROCESO DE ADOPCIÓN -->
+<!-- ============================================= -->
+<section class="section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+
+                <h2 class="section-title">Proceso de adopción responsable</h2>
+                <p class="section-subtitle">
+                    Queremos asegurarnos de que cada mascota encuentre el hogar perfecto.
+                    Por eso seguimos un proceso simple pero cuidadoso.
+                </p>
+                <div class="section-accent"></div>
+
+                <!-- Pasos -->
+                <div class="row g-4 mt-3">
+                    <div class="col-md-6">
+                        <div class="adoption-step">
+                            <div class="step-number step-1">1</div>
+                            <h6>Nombre completo</h6>
+                            <p>
+                                Necesitamos tu identificación oficial para
+                                iniciar el registro legal de la mascota.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="adoption-step">
+                            <div class="step-number step-2">2</div>
+                            <h6>Dirección completa</h6>
+                            <p>
+                                Verificamos que el entorno sea seguro y cuente
+                                con el espacio necesario para el animal.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="adoption-step">
+                            <div class="step-number step-3">3</div>
+                            <h6>Capacidad de mascotas</h6>
+                            <p>
+                                Evaluamos cuántos animales puedes mantener
+                                responsablemente según tu tiempo y recursos.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="adoption-step">
+                            <div class="step-number step-4">4</div>
+                            <h6>Correo electrónico</h6>
+                            <p>
+                                Te enviaremos el contrato digital y el calendario
+                                de seguimiento de vacunas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compromiso -->
+                <div class="fact-card mt-4">
+                    <h6><i class="bi bi-shield-check me-1"></i> Nuestro compromiso</h6>
+                    <p>
+                        Realizamos un seguimiento post-adopción durante los primeros 3 meses
+                        para garantizar el bienestar del animal y apoyarte en el proceso de
+                        adaptación. Además, todas nuestras mascotas están vacunadas y esterilizadas.
+                    </p>
+                </div>
+
+                <!-- CTA -->
+                <div class="text-center mt-5">
+                    <p style="font-size: 1.1rem; color: var(--gris-700); font-weight: 600; margin-bottom: 1rem;">
+                        ¿Listo para empezar el proceso?
+                    </p>
+                    <div class="d-flex gap-3 justify-content-center flex-wrap">
+                        <a class="btn-coral px-4 py-2" asp-controller="Pestanias" asp-action="Perros">
+                            <i class="bi bi-search-heart me-1"></i> Ver mascotas disponibles
+                        </a>
+                        <a class="btn-outline-coral px-4 py-2" asp-controller="Pestanias" asp-action="Adopciones">
+                            <i class="bi bi-clipboard-heart me-1"></i> Ir a adopciones
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

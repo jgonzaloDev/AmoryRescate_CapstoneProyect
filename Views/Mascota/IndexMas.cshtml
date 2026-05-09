@@ -1,0 +1,131 @@
+﻿@model List<Albergue_aspnet_DAS.Models.TbMascotum>
+
+@{
+
+    ViewData["Title"] = "Lista de Mascotas";
+
+}
+<div class="card">
+    <div style="background-color:cyan" class="card-header">
+        <h5>LIsta de Mascotas</h5>
+    </div>
+    <div class="card-body">
+        <a class="btn-success btn-sm text-decoration-none" asp-action="Mascota_Detalle" asp-controller="Mascota" asp-route-idMascota="0">Crear Nuevo</a>
+        <hr/>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre de la Mascota</th>
+                    <th>Tipo</th>
+                    <th>Raza</th>
+                    <th>Sexo</th>
+                    <th>Tamaño</th>
+                    <th>Color</th>
+                    <th>Fecha de nacimiento</th>
+                    <th>Edad</th>
+                    <th>Imagen</th>
+                    <th>Activo</th>
+                    <th>Albergue perteneciente</th>
+                    <th></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.NombreMas</td>
+                        <td>@item.oTipoMascota.DescripcionTipMas</td>
+                        <td>@item.oRazaMascota.DescripcionRazMas</td>
+                        <td>
+                            @if (item.SexoMas == "M")
+                            {
+                                <span>Macho</span>
+                            }
+                            else if (item.SexoMas == "H")
+                            {
+                                <span>Hembra</span>
+                            }
+                            else
+                            {
+                                <span>Desconocido</span>
+                            }
+                        </td>
+                        <td>@item.TamanioMas</td>
+                        <td>@item.ColorMas</td>
+                        <td>@item.FechaNacMas</td>
+                        <td>@item.EdadMas</td>
+                        <td>
+                            @if (item.ImagenMas != null)
+                            {
+                                <img src="data:image/jpeg;base64,@Convert.ToBase64String(item.ImagenMas)"
+                                     alt="Imagen" style="max-width: 100px;" />
+                            }
+                            else
+                            {
+                                <span>Sin imagen</span>
+                            }
+                        </td>
+                        <td>@(item.Estado ? "SI" : "NO")</td>}
+                        <td>@item.oAlbergue.NombreAlb</td>
+                        <td>
+                            <a class="btm btn-primary btn-sm text-decoration-none" asp-action="Mascota_Detalle" asp-controller="Mascota" asp-route-idMascota="@item.IdMas">Editar</a>
+                            <a class="btm btn-danger btn-sm text-decoration-none" onclick="EliminarCambios(event)" asp-action="Eliminar" asp-controller="Mascota" asp-route-idMascota="@item.IdMas">Eliminar</a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function EliminarCambios(event) {
+            event.preventDefault(); // Evita la navegación predeterminada
+
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: "btn btn-success",
+                    cancelButton: "btn btn-danger"
+                },
+                buttonsStyling: false
+            });
+
+            swalWithBootstrapButtons.fire({
+                title: "¿Estás seguro?",
+                text: "Estás a punto de eliminar los datos",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Eliminar",
+                cancelButtonText: "Cancelar",
+                reverseButtons: true
+            }).then((resultado) => {
+                if (resultado.isConfirmed) {
+                    // Obtén el enlace que disparó el evento
+                    const url = event.target.href;
+
+                    // Redirige a la URL del botón
+                    window.location.href = url;
+
+                    swalWithBootstrapButtons.fire({
+                        title: "Eliminado!",
+                        text: "Los datos han sido eliminados correctamente.",
+                        icon: "success"
+                    });
+                } else if (resultado.dismiss === Swal.DismissReason.cancel) {
+                    swalWithBootstrapButtons.fire({
+                        title: "Cancelado",
+                        text: "Los datos no se han eliminado",
+                        icon: "error"
+                    });
+                }
+            });
+        }
+    </script>
+}
+
+
+

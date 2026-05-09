@@ -1,0 +1,127 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Albergue_aspnet_DAS
+build_property.RootNamespace = Albergue_aspnet_DAS
+build_property.ProjectDir = D:\DOJOOOOOOOOO-AZURE\proyecto_grupo1\sol_Albergue_aspnet_DAS\Albergue_aspnet_DAS\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\DOJOOOOOOOOO-AZURE\proyecto_grupo1\sol_Albergue_aspnet_DAS\Albergue_aspnet_DAS
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/DOJOOOOOOOOO-AZURE/proyecto_grupo1/sol_Albergue_aspnet_DAS/Albergue_aspnet_DAS/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOJOOOOOOOOO-AZURE/proyecto_grupo1/sol_Albergue_aspnet_DAS/Albergue_aspnet_DAS/Views/Account/Registro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Ryby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOJOOOOOOOOO-AZURE/proyecto_grupo1/sol_Albergue_aspnet_DAS/Albergue_aspnet_DAS/Views/Home/Albergue_Detalle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBbGJlcmd1ZV9EZXRhbGxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOJOOOOOOOOO-AZURE/proyecto_grupo1/sol_Albergue_aspnet_DAS/Albergue_aspnet_DAS/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOJOOOOOOOOO-AZURE/proyecto_grupo1/sol_Albergue_aspnet_DAS/Albergue_aspnet_DAS/Views/Mascota/IndexMas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YVxJbmRleE1hcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOJOOOOOOOOO-AZURE/proyecto_grupo1/sol_Albergue_aspnet_DAS/Albergue_aspnet_DAS/Views/Mascota/Mascota_Detalle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YVxNYXNjb3RhX0RldGFsbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOJOOOOOOOOO-AZURE/proyecto_grupo1/sol_Albergue_aspnet_DAS/Albergue_aspnet_DAS/Views/Mascota/_MascotasTarjetas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YVxfTWFzY290YXNUYXJqZXRhcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOJOOOOOOOOO-AZURE/proyecto_grupo1/sol_Albergue_aspnet_DAS/Albergue_aspnet_DAS/Views/Pestanias/Adopciones.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVzdGFuaWFzXEFkb3BjaW9uZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOJOOOOOOOOO-AZURE/proyecto_grupo1/sol_Albergue_aspnet_DAS/Albergue_aspnet_DAS/Views/Pestanias/Adopciones_Detalles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVzdGFuaWFzXEFkb3BjaW9uZXNfRGV0YWxsZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOJOOOOOOOOO-AZURE/proyecto_grupo1/sol_Albergue_aspnet_DAS/Albergue_aspnet_DAS/Views/Pestanias/Buscar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVzdGFuaWFzXEJ1c2Nhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOJOOOOOOOOO-AZURE/proyecto_grupo1/sol_Albergue_aspnet_DAS/Albergue_aspnet_DAS/Views/Pestanias/Gatos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVzdGFuaWFzXEdhdG9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOJOOOOOOOOO-AZURE/proyecto_grupo1/sol_Albergue_aspnet_DAS/Albergue_aspnet_DAS/Views/Pestanias/Inicio.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVzdGFuaWFzXEluaWNpby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOJOOOOOOOOO-AZURE/proyecto_grupo1/sol_Albergue_aspnet_DAS/Albergue_aspnet_DAS/Views/Pestanias/Otros.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVzdGFuaWFzXE90cm9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOJOOOOOOOOO-AZURE/proyecto_grupo1/sol_Albergue_aspnet_DAS/Albergue_aspnet_DAS/Views/Pestanias/Perros.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVzdGFuaWFzXFBlcnJvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOJOOOOOOOOO-AZURE/proyecto_grupo1/sol_Albergue_aspnet_DAS/Albergue_aspnet_DAS/Views/RazaMascotasControllers/Imagen.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmF6YU1hc2NvdGFzQ29udHJvbGxlcnNcSW1hZ2VuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOJOOOOOOOOO-AZURE/proyecto_grupo1/sol_Albergue_aspnet_DAS/Albergue_aspnet_DAS/Views/RazaMascotasControllers/IndexRM.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmF6YU1hc2NvdGFzQ29udHJvbGxlcnNcSW5kZXhSTS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOJOOOOOOOOO-AZURE/proyecto_grupo1/sol_Albergue_aspnet_DAS/Albergue_aspnet_DAS/Views/RazaMascotasControllers/Razas_Detalle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmF6YU1hc2NvdGFzQ29udHJvbGxlcnNcUmF6YXNfRGV0YWxsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOJOOOOOOOOO-AZURE/proyecto_grupo1/sol_Albergue_aspnet_DAS/Albergue_aspnet_DAS/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOJOOOOOOOOO-AZURE/proyecto_grupo1/sol_Albergue_aspnet_DAS/Albergue_aspnet_DAS/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOJOOOOOOOOO-AZURE/proyecto_grupo1/sol_Albergue_aspnet_DAS/Albergue_aspnet_DAS/Views/SinLogica/ComoAdoptar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2luTG9naWNhXENvbW9BZG9wdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOJOOOOOOOOO-AZURE/proyecto_grupo1/sol_Albergue_aspnet_DAS/Albergue_aspnet_DAS/Views/TipoMascota/IndexTM.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb01hc2NvdGFcSW5kZXhUTS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOJOOOOOOOOO-AZURE/proyecto_grupo1/sol_Albergue_aspnet_DAS/Albergue_aspnet_DAS/Views/TipoMascota/TipoMas_Detalle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb01hc2NvdGFcVGlwb01hc19EZXRhbGxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOJOOOOOOOOO-AZURE/proyecto_grupo1/sol_Albergue_aspnet_DAS/Albergue_aspnet_DAS/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOJOOOOOOOOO-AZURE/proyecto_grupo1/sol_Albergue_aspnet_DAS/Albergue_aspnet_DAS/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOJOOOOOOOOO-AZURE/proyecto_grupo1/sol_Albergue_aspnet_DAS/Albergue_aspnet_DAS/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-6l2duiirdx

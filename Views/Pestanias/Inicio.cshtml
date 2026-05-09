@@ -1,0 +1,195 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- ============================================= -->
+<!-- HERO SECTION -->
+<!-- ============================================= -->
+<section class="hero-section">
+    <div class="hero-bg" style="background-image: url('/image/portada.jpg');"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="hero-badge">
+            <i class="bi bi-heart-pulse-fill"></i> Adopta, no compres
+        </div>
+        <h1 class="hero-title">
+            Encuentra a tu <span>compañero</span> ideal
+        </h1>
+        <p class="hero-subtitle">
+            El sitio ideal para encontrar un amigo de compañía y
+            disfrutar bellos momentos con él. Cada adopción salva una vida.
+        </p>
+        <div class="hero-buttons">
+            <a class="btn-hero-primary" asp-controller="Pestanias" asp-action="Perros">
+                <i class="bi bi-search-heart"></i> Ver mascotas
+            </a>
+            <a class="btn-hero-secondary" asp-controller="SinLogica" asp-action="ComoAdoptar">
+                <i class="bi bi-info-circle"></i> ¿Cómo adoptar?
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================= -->
+<!-- CATEGORÍAS -->
+<!-- ============================================= -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">¿Quieres adoptar una mascota?</h2>
+        <p class="section-subtitle">
+            Explora nuestras categorías y encuentra al amigo perfecto para ti y tu familia.
+        </p>
+        <div class="section-accent"></div>
+
+        <div class="row g-4 mt-2">
+            <!-- Perros -->
+            <div class="col-lg-4 col-md-6">
+                <a class="category-card" asp-controller="Pestanias" asp-action="Perros">
+                    <div class="category-card-img">
+                        <img src="/image/Julia.jpg" alt="Perros en adopción">
+                        <div class="card-overlay"></div>
+                    </div>
+                    <div class="category-card-body">
+                        <h5>Perros</h5>
+                        <p>Leales, cariñosos y listos para ser tu mejor amigo</p>
+                        <div class="card-arrow">
+                            <i class="bi bi-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Gatos -->
+            <div class="col-lg-4 col-md-6">
+                <a class="category-card" asp-controller="Pestanias" asp-action="Gatos">
+                    <div class="category-card-img">
+                        <img src="/image/gatito.jpg" alt="Gatos en adopción">
+                        <div class="card-overlay"></div>
+                    </div>
+                    <div class="category-card-body">
+                        <h5>Gatos</h5>
+                        <p>Independientes, elegantes y llenos de personalidad</p>
+                        <div class="card-arrow">
+                            <i class="bi bi-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Otros -->
+            <div class="col-lg-4 col-md-6">
+                <a class="category-card" asp-controller="Pestanias" asp-action="Otros">
+                    <div class="category-card-img">
+                        <img src="/image/conejo.jpg" alt="Otros animales en adopción">
+                        <div class="card-overlay"></div>
+                    </div>
+                    <div class="category-card-body">
+                        <h5>Otros</h5>
+                        <p>Conejos, hámsters y más amigos esperan por ti</p>
+                        <div class="card-arrow">
+                            <i class="bi bi-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================= -->
+<!-- ESTADÍSTICAS -->
+<!-- ============================================= -->
+<section class="stats-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <div class="stat-item">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Mascotas adoptadas</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Familias felices</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-item">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Albergues asociados</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Soporte disponible</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================= -->
+<!-- POR QUÉ ADOPTAR -->
+<!-- ============================================= -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">¿Por qué adoptar?</h2>
+        <p class="section-subtitle">
+            Adoptar es un acto de amor que transforma vidas, la tuya y la de ellos.
+        </p>
+        <div class="section-accent"></div>
+
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="adoption-step">
+                    <div class="step-number step-1">
+                        <i class="bi bi-heart-fill"></i>
+                    </div>
+                    <h6>Salvas una vida</h6>
+                    <p>Cada mascota adoptada abre espacio para rescatar a otro animal en situación de abandono.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="adoption-step">
+                    <div class="step-number step-2">
+                        <i class="bi bi-house-heart-fill"></i>
+                    </div>
+                    <h6>Ganas un compañero</h6>
+                    <p>Las mascotas adoptadas son agradecidas y forman lazos increíblemente fuertes con sus nuevas familias.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="adoption-step">
+                    <div class="step-number step-3">
+                        <i class="bi bi-emoji-smile-fill"></i>
+                    </div>
+                    <h6>Mejoras tu bienestar</h6>
+                    <p>Tener una mascota reduce el estrés, la ansiedad y te motiva a mantener una rutina activa y saludable.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================= -->
+<!-- CALL TO ACTION -->
+<!-- ============================================= -->
+<section class="section bg-coral-light">
+    <div class="container text-center">
+        <h2 class="section-title" style="color: var(--coral-dark);">¿Listo para dar el primer paso?</h2>
+        <p class="section-subtitle" style="color: var(--gris-700);">
+            Miles de mascotas esperan un hogar lleno de amor. Comienza hoy tu proceso de adopción.
+        </p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap mt-4">
+            <a class="btn-coral btn-lg px-4 py-2" asp-controller="Pestanias" asp-action="Adopciones">
+                <i class="bi bi-clipboard-heart me-1"></i> Comenzar adopción
+            </a>
+            <a class="btn-outline-coral btn-lg px-4 py-2" asp-controller="Pestanias" asp-action="Perros">
+                <i class="bi bi-grid me-1"></i> Explorar mascotas
+            </a>
+        </div>
+    </div>
+</section>

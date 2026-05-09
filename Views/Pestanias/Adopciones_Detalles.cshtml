@@ -1,0 +1,164 @@
+﻿@model Albergue_aspnet_DAS.Models.TbMascotum
+@{
+    ViewData["Title"] = "Detalle de Mascota";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- ============================================= -->
+<!-- BANNER DE PÁGINA -->
+<!-- ============================================= -->
+<div class="page-banner">
+    <img src="/image/portada.jpg" alt="Detalle de adopción">
+    <div class="page-banner-content">
+        <h1>@Model.NombreMas</h1>
+        <p><i class="bi bi-heart-fill me-1"></i> Conoce a tu futuro compañero</p>
+    </div>
+</div>
+
+<!-- ============================================= -->
+<!-- DETALLE DE MASCOTA -->
+<!-- ============================================= -->
+<section class="section">
+    <div class="container">
+        <div class="row g-4 justify-content-center">
+
+            <!-- IMAGEN -->
+            <div class="col-lg-6 col-md-6">
+                <div class="pet-detail-img-wrapper">
+                    @if (Model.ImagenMas != null)
+                    {
+                        <img src="data:image/jpeg;base64,@Convert.ToBase64String(Model.ImagenMas)"
+                             alt="@Model.NombreMas"
+                             class="pet-detail-img">
+                    }
+                    else
+                    {
+                        <div class="pet-detail-no-img">
+                            <i class="bi bi-image" style="font-size: 4rem; color: var(--gris-300);"></i>
+                            <p style="color: var(--gris-500); margin-top: 0.5rem;">Sin imagen disponible</p>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- INFORMACIÓN -->
+            <div class="col-lg-6 col-md-6">
+                <div class="pet-detail-info">
+                    <span class="pet-badge">
+                        <i class="bi bi-heart-pulse me-1"></i> En adopción
+                    </span>
+
+                    <h2 class="pet-detail-name">@Model.NombreMas</h2>
+
+                    <div class="pet-detail-grid">
+                        <div class="pet-detail-item">
+                            <div class="pet-detail-icon" style="background: var(--coral-light); color: var(--coral);">
+                                <i class="bi bi-calendar3"></i>
+                            </div>
+                            <div>
+                                <span class="pet-detail-label">Edad</span>
+                                <span class="pet-detail-value">@Model.EdadMas años</span>
+                            </div>
+                        </div>
+
+                        <div class="pet-detail-item">
+                            <div class="pet-detail-icon" style="background: #E6EDFF; color: #5B8DEF;">
+                                @if (Model.SexoMas?.ToLower() == "hembra")
+                                {
+                                    <i class="bi bi-gender-female"></i>
+                                }
+                                else
+                                {
+                                    <i class="bi bi-gender-male"></i>
+                                }
+                            </div>
+                            <div>
+                                <span class="pet-detail-label">Sexo</span>
+                                <span class="pet-detail-value">@Model.SexoMas</span>
+                            </div>
+                        </div>
+
+                        <div class="pet-detail-item">
+                            <div class="pet-detail-icon" style="background: var(--verde-light); color: var(--verde);">
+                                <i class="bi bi-rulers"></i>
+                            </div>
+                            <div>
+                                <span class="pet-detail-label">Tamaño</span>
+                                <span class="pet-detail-value">@Model.TamanioMas</span>
+                            </div>
+                        </div>
+
+                        <div class="pet-detail-item">
+                            <div class="pet-detail-icon" style="background: #FFF3E0; color: var(--ambar);">
+                                <i class="bi bi-cake2"></i>
+                            </div>
+                            <div>
+                                <span class="pet-detail-label">Fecha de nacimiento</span>
+                                <span class="pet-detail-value">
+                                    @(Model.FechaNacMas?.ToString("dd/MM/yyyy") ?? "No registrada")
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pet-detail-actions">
+                        <button class="btn-coral w-100 py-2" type="button" id="btnSolicitar">
+                            <i class="bi bi-heart-fill me-1"></i> Solicitar adopción
+                        </button>
+                        <a class="btn-outline-coral w-100 py-2 text-center" asp-controller="Pestanias" asp-action="Adopciones">
+                            <i class="bi bi-arrow-left me-1"></i> Volver a mascotas
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN INFORMATIVA -->
+        <div class="row g-4 mt-4">
+            <div class="col-md-4">
+                <div class="fact-card">
+                    <h6><i class="bi bi-shield-check me-1"></i> Vacunación</h6>
+                    <p>Todas nuestras mascotas están al día con sus vacunas y desparasitaciones.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="fact-card" style="background: var(--coral-light); border-left-color: var(--coral);">
+                    <h6 style="color: var(--coral-dark);"><i class="bi bi-clipboard2-pulse me-1"></i> Seguimiento</h6>
+                    <p style="color: var(--coral-dark);">Realizamos seguimiento post-adopción durante 3 meses para asegurar la adaptación.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="fact-card" style="background: #FFF3E0; border-left-color: var(--ambar);">
+                    <h6 style="color: #7A5500;"><i class="bi bi-heart-pulse me-1"></i> Esterilización</h6>
+                    <p style="color: #7A5500;">Nuestras mascotas son entregadas esterilizadas para promover la tenencia responsable.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        document.getElementById('btnSolicitar').addEventListener('click', function () {
+            Swal.fire({
+                title: '¿Deseas adoptar a @Model.NombreMas?',
+                text: 'Se iniciará el proceso de solicitud de adopción.',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#2D6A4F',
+                cancelButtonColor: '#888',
+                confirmButtonText: '<i class="bi bi-heart-fill me-1"></i> Sí, quiero adoptar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: '¡Solicitud enviada!',
+                        html: 'Nos pondremos en contacto contigo pronto para continuar con la adopción de <strong>@Model.NombreMas</strong>.',
+                        icon: 'success',
+                        confirmButtonColor: '#2D6A4F'
+                    });
+                }
+            });
+        });
+    </script>
+}

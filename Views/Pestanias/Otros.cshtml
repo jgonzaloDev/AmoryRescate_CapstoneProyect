@@ -1,0 +1,199 @@
+﻿@model List<Albergue_aspnet_DAS.Models.TbMascotum>
+@{
+    ViewData["Title"] = "Otros";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- ============================================= -->
+<!-- BANNER DE PÁGINA -->
+<!-- ============================================= -->
+<div class="page-banner">
+    <img src="/image/portada.jpg" alt="Otros animales en adopción">
+    <div class="page-banner-content">
+        <h1>Otros animales</h1>
+        <p><i class="bi bi-heart-fill me-1"></i> Conejos, hámsters y más amigos te esperan</p>
+    </div>
+</div>
+
+<!-- ============================================= -->
+<!-- CONTENIDO PRINCIPAL -->
+<!-- ============================================= -->
+<section class="section">
+    <div class="container">
+        <div class="row g-4">
+
+            <!-- PANEL DE FILTROS -->
+            <div class="col-lg-3 col-md-4">
+                <div class="filter-panel">
+                    <h5>
+                        <i class="bi bi-funnel text-coral"></i> Filtrar por
+                    </h5>
+
+                    <form id="filtrosForm">
+                        <!-- Filtro Sexo -->
+                        <div class="filter-group">
+                            <label>Sexo</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sexo"
+                                       id="sexo-todos" value="todos" checked>
+                                <label class="form-check-label" for="sexo-todos">Todos</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sexo"
+                                       id="sexo-hembra" value="hembra">
+                                <label class="form-check-label" for="sexo-hembra">
+                                    <i class="bi bi-gender-female text-coral me-1"></i>Hembra
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sexo"
+                                       id="sexo-macho" value="macho">
+                                <label class="form-check-label" for="sexo-macho">
+                                    <i class="bi bi-gender-male me-1" style="color: #5B8DEF;"></i>Macho
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Filtro Tamaño -->
+                        <div class="filter-group">
+                            <label>Tamaño</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="tamanio"
+                                       id="tam-todos" value="todos" checked>
+                                <label class="form-check-label" for="tam-todos">Todos</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="tamanio"
+                                       id="tam-pequeno" value="pequeño">
+                                <label class="form-check-label" for="tam-pequeno">Pequeño</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="tamanio"
+                                       id="tam-mediano" value="mediano">
+                                <label class="form-check-label" for="tam-mediano">Mediano</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="tamanio"
+                                       id="tam-grande" value="grande">
+                                <label class="form-check-label" for="tam-grande">Grande</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-filtrar">
+                            <i class="bi bi-check2-circle me-1"></i> Aplicar filtros
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Dato curioso -->
+                <div class="fact-card mt-4">
+                    <h6><i class="bi bi-lightbulb me-1"></i> ¿Sabías que?</h6>
+                    <p>
+                        Los conejos pueden saltar hasta 1 metro de altura
+                        y correr a velocidades de hasta 56 km/h. ¡Son verdaderos atletas!
+                    </p>
+                </div>
+            </div>
+
+            <!-- GRID DE MASCOTAS -->
+            <div class="col-lg-9 col-md-8">
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <p class="mb-0" style="font-size: 0.9rem; color: var(--gris-500);">
+                        <i class="bi bi-grid-3x3-gap me-1"></i>
+                        Mostrando <strong style="color: var(--gris-900);">@Model.Count</strong> animales disponibles
+                    </p>
+                </div>
+
+                <div class="row g-3" id="mascotasContainer">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="pet-card">
+                                <div class="pet-card-img">
+                                    @if (item.ImagenMas != null)
+                                    {
+                                        <img src="data:image/jpeg;base64,@Convert.ToBase64String(item.ImagenMas)"
+                                             alt="@item.NombreMas">
+                                    }
+                                    else
+                                    {
+                                        <div class="d-flex align-items-center justify-content-center h-100"
+                                             style="background: var(--gris-100);">
+                                            <i class="bi bi-image text-muted" style="font-size: 2.5rem;"></i>
+                                        </div>
+                                    }
+                                </div>
+                                <div class="pet-card-body">
+                                    <h6>@item.NombreMas</h6>
+                                    <div class="pet-meta">
+                                        <span>
+                                            <i class="bi bi-calendar3"></i> @item.EdadMas años
+                                        </span>
+                                        <span>
+                                            @if (item.SexoMas?.ToLower() == "hembra")
+                                            {
+                                                <i class="bi bi-gender-female text-coral"></i>
+                                            }
+                                            else
+                                            {
+                                                <i class="bi bi-gender-male" style="color: #5B8DEF;"></i>
+                                            }
+                                            @item.SexoMas
+                                        </span>
+                                    </div>
+                                    <a class="btn-adoptar" asp-controller="SinLogica" asp-action="ComoAdoptar">
+                                        <i class="bi bi-heart me-1"></i> Quiero adoptar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                @if (Model.Count == 0)
+                {
+                    <div class="text-center py-5">
+                        <i class="bi bi-emoji-frown" style="font-size: 3rem; color: var(--gris-300);"></i>
+                        <p class="mt-3" style="color: var(--gris-500);">
+                            No se encontraron animales con los filtros seleccionados.
+                        </p>
+                        <button class="btn-outline-coral" onclick="document.getElementById('filtrosForm').reset();">
+                            <i class="bi bi-arrow-counterclockwise me-1"></i> Limpiar filtros
+                        </button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#filtrosForm').on('submit', function (e) {
+                e.preventDefault();
+
+                var sexo = $("input[name='sexo']:checked").val();
+                var tamanio = $("input[name='tamanio']:checked").val();
+
+                $.ajax({
+                    url: '@Url.Action("Filtros", "Mascota")',
+                    data: { sexo: sexo, tamanio: tamanio },
+                    type: 'GET',
+                    success: function (data) {
+                        $('#mascotasContainer').html(data);
+                    },
+                    error: function () {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Hubo un error al aplicar los filtros.',
+                            confirmButtonColor: '#E8725A'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}

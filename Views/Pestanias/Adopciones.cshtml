@@ -1,0 +1,164 @@
+﻿@model List<Albergue_aspnet_DAS.Models.TbMascotum>
+@{
+    ViewData["Title"] = "Adopciones";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- ============================================= -->
+<!-- BANNER DE PÁGINA -->
+<!-- ============================================= -->
+<div class="page-banner">
+    <img src="/image/portada.jpg" alt="Adopciones">
+    <div class="page-banner-content">
+        <h1>Adopciones</h1>
+        <p><i class="bi bi-heart-fill me-1"></i> Conoce a tu futuro compañero</p>
+    </div>
+</div>
+
+<!-- ============================================= -->
+<!-- LISTADO DE MASCOTAS -->
+<!-- ============================================= -->
+<section class="section">
+    <div class="container">
+
+        <h2 class="section-title">Mascotas disponibles para adopción</h2>
+        <p class="section-subtitle">
+            Cada uno de ellos espera un hogar lleno de amor. ¿Serás tú quien le cambie la vida?
+        </p>
+        <div class="section-accent"></div>
+
+        <!-- Contador -->
+        <div class="d-flex justify-content-between align-items-center mt-4 mb-3">
+            <p class="mb-0" style="font-size: 0.9rem; color: var(--gris-500);">
+                <i class="bi bi-grid-3x3-gap me-1"></i>
+                Mostrando <strong style="color: var(--gris-900);">@Model.Count</strong> mascotas disponibles
+            </p>
+        </div>
+
+        @if (Model.Count > 0)
+        {
+            <div class="row g-4">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="pet-card">
+                            <div class="pet-card-img">
+                                @if (item.ImagenMas != null)
+                                {
+                                    <img src="data:image/jpeg;base64,@Convert.ToBase64String(item.ImagenMas)"
+                                         alt="@item.NombreMas">
+                                }
+                                else
+                                {
+                                    <div class="d-flex align-items-center justify-content-center h-100"
+                                         style="background: var(--gris-100);">
+                                        <i class="bi bi-image text-muted" style="font-size: 2.5rem;"></i>
+                                    </div>
+                                }
+                            </div>
+                            <div class="pet-card-body">
+                                <h6>@item.NombreMas</h6>
+                                <div class="pet-meta">
+                                    <span>
+                                        <i class="bi bi-calendar3"></i> @item.EdadMas años
+                                    </span>
+                                    <span>
+                                        @if (item.SexoMas?.ToLower() == "hembra")
+                                        {
+                                            <i class="bi bi-gender-female text-coral"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="bi bi-gender-male" style="color: #5B8DEF;"></i>
+                                        }
+                                        @item.SexoMas
+                                    </span>
+                                    @if (!string.IsNullOrEmpty(item.TamanioMas))
+                                    {
+                                        <span>
+                                            <i class="bi bi-rulers"></i> @item.TamanioMas
+                                        </span>
+                                    }
+                                </div>
+                                <button class="btn-adoptar btn-solicitar-adopcion"
+                                        data-nombre="@item.NombreMas"
+                                        data-id="@item.IdMas"
+                                        type="button">
+                                    <i class="bi bi-heart me-1"></i> Solicitar adopción
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="text-center py-5">
+                <i class="bi bi-emoji-frown" style="font-size: 3rem; color: var(--gris-300);"></i>
+                <p class="mt-3" style="color: var(--gris-500);">
+                    No hay mascotas disponibles en este momento.
+                </p>
+                <a class="btn-outline-coral px-4 py-2" asp-controller="Pestanias" asp-action="Inicio">
+                    <i class="bi bi-house me-1"></i> Volver al inicio
+                </a>
+            </div>
+        }
+
+        <!-- ============================== -->
+        <!-- SECCIÓN INFORMATIVA -->
+        <!-- ============================== -->
+        <div class="row g-4 mt-5">
+            <div class="col-md-4">
+                <div class="fact-card">
+                    <h6><i class="bi bi-shield-check me-1"></i> Vacunación</h6>
+                    <p>Todas nuestras mascotas están al día con sus vacunas y desparasitaciones.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="fact-card" style="background: var(--coral-light); border-left-color: var(--coral);">
+                    <h6 style="color: var(--coral-dark);"><i class="bi bi-clipboard2-pulse me-1"></i> Seguimiento</h6>
+                    <p style="color: var(--coral-dark);">Realizamos seguimiento post-adopción durante 3 meses para asegurar la adaptación.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="fact-card" style="background: #FFF3E0; border-left-color: var(--ambar);">
+                    <h6 style="color: #7A5500;"><i class="bi bi-heart-pulse me-1"></i> Esterilización</h6>
+                    <p style="color: #7A5500;">Nuestras mascotas son entregadas esterilizadas para promover la tenencia responsable.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('.btn-solicitar-adopcion').on('click', function () {
+                var nombre = $(this).data('nombre');
+                var id = $(this).data('id');
+
+                Swal.fire({
+                    title: '¿Deseas adoptar a ' + nombre + '?',
+                    text: 'Se iniciará el proceso de solicitud de adopción.',
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#2D6A4F',
+                    cancelButtonColor: '#888',
+                    confirmButtonText: '<i class="bi bi-heart-fill me-1"></i> Sí, quiero adoptar',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            title: '¡Solicitud enviada!',
+                            html: 'Nos pondremos en contacto contigo pronto para continuar con la adopción de <strong>' + nombre + '</strong>.',
+                            icon: 'success',
+                            confirmButtonColor: '#2D6A4F'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}

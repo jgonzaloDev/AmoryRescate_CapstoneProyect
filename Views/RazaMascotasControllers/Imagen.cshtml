@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewData["Title"] = "Imagen";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Imagen</h1>
+
+@{
+    ViewData["Title"] = "Subir Imagen de Mascota";
+}
+<!-- Define el título de la página que aparecerá en el encabezado del navegador -->
+
+<h2>Cargar Imagen de Mascota</h2>
+<!-- Encabezado principal de la página -->
+
+@* <div class="row">
+    <div class="col-4">
+
+        <div class="container bg-danger">
+            <h1>Hola imagen</h1>
+        </div>
+
+
+    </div>
+
+    <div class="col-4">
+
+        <div class="container bg-b">
+            <h1>Hola mundo</h1>
+        </div>
+
+    </div>
+
+
+</div> *@
+
+<div class="container">
+    <!-- Contenedor principal para organizar el contenido de la página -->
+
+    <form asp-action="GuardarMascota" asp-controller="Home" enctype="multipart/form-data" method="post">
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre de la Mascota:</label>
+            <!-- Etiqueta descriptiva para el campo de texto -->
+            <input type="text" id="nombre" name="NombreMascota" class="form-control" placeholder="Ingrese el nombre de la mascota" required />
+          
+        </div>
+
+        <!-- Campo para seleccionar la imagen -->
+        <div class="mb-3">
+            <label for="imagen" class="form-label">Imagen de la Mascota:</label>
+            <!-- Etiqueta descriptiva para el campo de archivo -->
+            <input type="file" id="imagen" name="ImagenMascota" class="form-control" accept="image/*" onchange="previewImage(event)" required />
+            <!-- Campo de tipo "file" para seleccionar imágenes desde el ordenador -->
+            <!-- 'accept="image/*"' asegura que solo se pueden cargar archivos de imagen -->
+            <!-- 'onchange="previewImage(event)"' llama a la función JavaScript para mostrar la imagen seleccionada -->
+            <!-- 'required' asegura que este campo sea obligatorio -->
+        </div>
+
+        <!-- Contenedor para la vista previa de la imagen cargada -->
+        <div class="mb-3">
+            <label class="form-label">Vista Previa:</label>
+            <!-- Etiqueta descriptiva para la sección de vista previa -->
+            <div id="vistaPrevia" style="width: 100%; max-width: 500px; height: 300px; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #f8f9fa;">
+                <!-- Contenedor donde aparecerá la imagen cargada -->
+                <!-- Estilos aplicados:
+                    - 'width: 100%; max-width: 500px': ajusta el ancho al tamaño máximo permitido
+                    - 'height: 300px': fija la altura del cuadro
+                    - 'border: 2px dashed #ccc': agrega un borde punteado gris claro
+                    - 'display: flex; align-items: center; justify-content: center': centra el contenido dentro del cuadro
+                    - 'overflow: hidden': asegura que el contenido no se desborde fuera del cuadro
+                    - 'background-color: #f8f9fa': agrega un fondo gris claro -->
+                <span style="color: #aaa;">No se ha cargado ninguna imagen</span>
+                <!-- Texto que aparece por defecto si no se ha cargado ninguna imagen -->
+            </div>
+        </div>
+
+        <!-- Botón para enviar los datos del formulario -->
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <!-- Botón con clase Bootstrap para estilo (btn-primary para color azul) -->
+    </form>
+</div>
+
+@section Scripts {
+    <!-- Sección para incluir scripts adicionales -->
+    <script>
+        function previewImage(event) {
+            // Función que muestra la vista previa de la imagen seleccionada
+            const vistaPrevia = document.getElementById("vistaPrevia");
+            // Obtiene el contenedor de la vista previa
+
+            const archivo = event.target.files[0];
+            // Obtiene el archivo seleccionado por el usuario
+
+            if (archivo) {
+                const reader = new FileReader();
+                // Crea un objeto FileReader para leer el contenido del archivo
+
+                reader.onload = function (e) {
+                    // Evento que se ejecuta cuando el archivo se ha cargado correctamente
+                    vistaPrevia.innerHTML = `<img src="${e.target.result}" style="width: 100%; height: 100%; object-fit: cover;" alt="Vista Previa">`;
+                    // Actualiza el contenido del contenedor de vista previa con la imagen cargada
+                    // 'src' contiene la URL de la imagen cargada
+                    // 'style="width: 100%; height: 100%; object-fit: cover;"' asegura que la imagen ocupe todo el cuadro manteniendo su proporción
+                    // 'alt="Vista Previa"' proporciona un texto alternativo en caso de error
+                };
+
+                reader.readAsDataURL(archivo);
+                // Lee el archivo como una URL de datos (base64)
+            } else {
+                vistaPrevia.innerHTML = `<span style="color: #aaa;">No se ha cargado ninguna imagen</span>`;
+                // Si no hay archivo seleccionado, muestra el texto por defecto
+            }
+        }
+    </script>
+}
+<!-- Fin de la sección de scripts -->

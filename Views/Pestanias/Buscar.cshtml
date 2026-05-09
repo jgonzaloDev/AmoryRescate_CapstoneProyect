@@ -1,0 +1,161 @@
+﻿@model List<Albergue_aspnet_DAS.Models.TbMascotum>
+@{
+    ViewData["Title"] = "Buscar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var busqueda = ViewData["BusquedaActual"]?.ToString() ?? "";
+}
+
+<!-- ============================================= -->
+<!-- BANNER DE PÁGINA -->
+<!-- ============================================= -->
+<div class="page-banner">
+    <img src="/image/portada.jpg" alt="Buscar mascotas">
+    <div class="page-banner-content">
+        <h1>Resultados de búsqueda</h1>
+        @if (!string.IsNullOrEmpty(busqueda))
+        {
+            <p><i class="bi bi-search me-1"></i> Buscando: "@busqueda"</p>
+        }
+    </div>
+</div>
+
+<!-- ============================================= -->
+<!-- RESULTADOS -->
+<!-- ============================================= -->
+<section class="section">
+    <div class="container">
+
+        <!-- Barra de búsqueda grande -->
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-8">
+                <form asp-controller="Pestanias" asp-action="Buscar" method="get"
+                      class="d-flex gap-2">
+                    <div class="search-wrapper-lg">
+                        <i class="bi bi-search search-icon-lg"></i>
+                        <input type="search" name="q" value="@busqueda"
+                               class="form-control form-control-lg search-input-lg"
+                               placeholder="Buscar por nombre, tipo, raza, sexo o tamaño..."
+                               autofocus>
+                    </div>
+                    <button type="submit" class="btn-coral px-4">
+                        <i class="bi bi-search"></i> Buscar
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        @if (string.IsNullOrEmpty(busqueda))
+        {
+            <!-- Estado inicial -->
+            <div class="text-center py-5">
+                <i class="bi bi-search" style="font-size: 3.5rem; color: var(--gris-300);"></i>
+                <h4 style="font-family: var(--font-heading); color: var(--gris-700); margin-top: 1rem;">
+                    ¿Qué mascota estás buscando?
+                </h4>
+                <p style="color: var(--gris-500); max-width: 450px; margin: 0.5rem auto;">
+                    Escribe el nombre, tipo (perro, gato), raza, sexo o tamaño
+                    para encontrar a tu compañero ideal.
+                </p>
+                <div class="d-flex gap-2 justify-content-center flex-wrap mt-3">
+                    <a class="btn-outline-coral px-3 py-1" asp-controller="Pestanias" asp-action="Buscar" asp-route-q="perro">
+                        Perros
+                    </a>
+                    <a class="btn-outline-coral px-3 py-1" asp-controller="Pestanias" asp-action="Buscar" asp-route-q="gato">
+                        Gatos
+                    </a>
+                    <a class="btn-outline-coral px-3 py-1" asp-controller="Pestanias" asp-action="Buscar" asp-route-q="hembra">
+                        Hembras
+                    </a>
+                    <a class="btn-outline-coral px-3 py-1" asp-controller="Pestanias" asp-action="Buscar" asp-route-q="pequeño">
+                        Pequeños
+                    </a>
+                </div>
+            </div>
+        }
+        else if (Model.Count == 0)
+        {
+            <!-- Sin resultados -->
+            <div class="text-center py-5">
+                <i class="bi bi-emoji-frown" style="font-size: 3rem; color: var(--gris-300);"></i>
+                <h4 style="font-family: var(--font-heading); color: var(--gris-700); margin-top: 1rem;">
+                    No encontramos resultados
+                </h4>
+                <p style="color: var(--gris-500);">
+                    No hay mascotas que coincidan con "<strong>@busqueda</strong>".
+                    Intenta con otro término.
+                </p>
+                <a class="btn-coral px-4 py-2 mt-2" asp-controller="Pestanias" asp-action="Buscar">
+                    <i class="bi bi-arrow-counterclockwise me-1"></i> Nueva búsqueda
+                </a>
+            </div>
+        }
+        else
+        {
+            <!-- Resultados encontrados -->
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <p class="mb-0" style="font-size: 0.9rem; color: var(--gris-500);">
+                    <i class="bi bi-check-circle text-verde me-1"></i>
+                    Se encontraron <strong style="color: var(--gris-900);">@Model.Count</strong> resultados
+                    para "<strong>@busqueda</strong>"
+                </p>
+                <a style="font-size: 0.85rem; color: var(--coral);" asp-controller="Pestanias" asp-action="Buscar">
+                    <i class="bi bi-x-circle me-1"></i> Limpiar
+                </a>
+            </div>
+
+            <div class="row g-3">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="pet-card">
+                            <div class="pet-card-img">
+                                @if (item.ImagenMas != null)
+                                {
+                                    <img src="data:image/jpeg;base64,@Convert.ToBase64String(item.ImagenMas)"
+                                         alt="@item.NombreMas">
+                                }
+                                else
+                                {
+                                    <div class="d-flex align-items-center justify-content-center h-100"
+                                         style="background: var(--gris-100);">
+                                        <i class="bi bi-image text-muted" style="font-size: 2.5rem;"></i>
+                                    </div>
+                                }
+                            </div>
+                            <div class="pet-card-body">
+                                <h6>@item.NombreMas</h6>
+                                <div class="pet-meta">
+                                    <span>
+                                        <i class="bi bi-calendar3"></i> @item.EdadMas años
+                                    </span>
+                                    <span>
+                                        @if (item.SexoMas?.ToLower() == "hembra")
+                                        {
+                                            <i class="bi bi-gender-female text-coral"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="bi bi-gender-male" style="color: #5B8DEF;"></i>
+                                        }
+                                        @item.SexoMas
+                                    </span>
+                                </div>
+                                @if (item.oTipoMascota != null)
+                                {
+                                    <span class="pet-type-badge">
+                                        @item.oTipoMascota.DescripcionTipMas
+                                    </span>
+                                }
+                                <a class="btn-adoptar mt-2" asp-controller="Pestanias"
+                                   asp-action="Adopciones_Detalles"
+                                   asp-route-idMascota="@item.IdMas">
+                                    <i class="bi bi-heart me-1"></i> Ver detalle
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</section>
